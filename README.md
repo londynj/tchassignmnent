@@ -81,23 +81,19 @@ python dataAndGraphs.py
 
 
 ## Architecture
+
+**Diagram summary (text alternative):**
+COVID-19, Weather, and Air Quality APIs feed ingest scripts into a SQLite database. 
+The analysis script reads from SQLite and outputs a JSON summary and PNG charts.
+
+```mermaid
 flowchart LR
   subgraph Sources
-  ```bash
     COV[COVID-19 API]
     WX[Weather API]
     AQ[Air Quality API]
   end
 
-  subgraph Ingest Scripts
-    A[covid.py]
-    B[weather.py]
-    C[airQuality.py]
-  end
-
-  subgraph Storage
-    DB[(SQLite: project3.db)]
-  end
 
   subgraph Analysis & Viz
     D[dataAndGraphs.py]
